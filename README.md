@@ -29,3 +29,30 @@ Container practice-hlpf-npm-run-2bbc5502af52 Creating
 Container practice-hlpf-npm-run-2bbc5502af52 Created 
 v25.8.0
 ```
+
+
+Практичне заняття: NestJS + PostgreSQL + Redis у Docker
+
+Примітка: У навчальних цілях файл .env залишено в репозиторії. Для справжніх проєктів не забудьте додати його в .gitignore.
+
+**<вивід docker compose ps>**
+```
+NAME                       IMAGE                COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+practice-hlpf-postgres-1   postgres:16-alpine   "docker-entrypoint.s…"   postgres   16 seconds ago   Up 12 seconds (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis      16 seconds ago   Up 12 seconds (healthy)   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
+```
+**<вивід docker compose exec postgres psql -U nestuser -d nestdb -c '\l'>**
+```
+                                                      List of databases
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
+ nestdb    | nestuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
+ postgres  | nestuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
+ template0 | nestuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/nestuser          +
+           |          |          |                 |            |            |            |           | nestuser=CTc/nestuser
+ template1 | nestuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/nestuser          +
+           |          |          |                 |            |            |            |           | nestuser=CTc/nestuser
+(4 rows)
+```
+
+
