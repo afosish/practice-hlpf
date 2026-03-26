@@ -3,7 +3,7 @@
 - Name: Максим Тимощук
 - Group: 232/1
 
-Практичне заняття: Підготовка середовища для розробки
+# **Практичне заняття: Підготовка середовища для розробки**
 
 **<вивід docker --version>**
 ```
@@ -31,7 +31,7 @@ v25.8.0
 ```
 
 
-Практичне заняття: NestJS + PostgreSQL + Redis у Docker
+# **Практичне заняття: NestJS + PostgreSQL + Redis у Docker**
 
 Примітка: У навчальних цілях файл .env залишено в репозиторії. Для справжніх проєктів не забудьте додати його в .gitignore.
 
@@ -54,5 +54,9 @@ practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis
            |          |          |                 |            |            |            |           | nestuser=CTc/nestuser
 (4 rows)
 ```
-
-
+**<вивід d**<docker compose logs -f app>**>**
+[Nest] 29  - 03/26/2026, 9:45:44 AM     LOG [NestApplication] Nest application successfully started +3ms
+**<вивід curl http://localhost:3000>**>**
+StatusCode        : 200
+StatusDescription : OK
+Content           : Hello World!
