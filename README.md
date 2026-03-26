@@ -64,3 +64,8 @@ StatusCode        : 200
 StatusDescription : OK
 Content           : Hello World!
 ```
+**<вивід docker compose logs -f app>**>**
+```
+app-1       | [Nest] 34  - 03/26/2026, 10:15:21 AM     LOG [NestFactory] Starting Nest application...
+app-1       | [Nest] 34  - 03/26/2026, 10:15:21 AM     LOG [InstanceLoader] TypeOrmModule dependencies initialized +137ms
+```
