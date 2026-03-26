@@ -55,8 +55,12 @@ practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis
 (4 rows)
 ```
 **<вивід d**<docker compose logs -f app>**>**
+```
 [Nest] 29  - 03/26/2026, 9:45:44 AM     LOG [NestApplication] Nest application successfully started +3ms
+```
 **<вивід curl http://localhost:3000>**>**
+```
 StatusCode        : 200
 StatusDescription : OK
 Content           : Hello World!
+```
