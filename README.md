@@ -70,8 +70,8 @@ app-1       | [Nest] 34  - 03/26/2026, 10:15:21 AM     LOG [NestFactory] Startin
 app-1       | [Nest] 34  - 03/26/2026, 10:15:21 AM     LOG [InstanceLoader] TypeOrmModule dependencies initialized +137ms
 ```
 **<вивід docker compose ps | фінальна перевірка>>**
-'''
+```
 NAME                       IMAGE                COMMAND                  SERVICE    CREATED         STATUS                   PORTS
 practice-hlpf-postgres-1   postgres:16-alpine   "docker-entrypoint.s…"   postgres   3 minutes ago   Up 2 minutes (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
 practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis      3 minutes ago   Up 2 minutes (healthy)   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
-'''
+```
