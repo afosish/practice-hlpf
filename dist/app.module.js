@@ -16,6 +16,8 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const category_entity_1 = require("./categories/category.entity");
 const product_entity_1 = require("./products/product.entity");
+const categories_module_1 = require("./categories/categories.module");
+const products_module_1 = require("./products/products.module");
 const _1744383123456_CreateTables_1 = require("./migrations/1744383123456-CreateTables");
 const _1775915495779_AddIsActiveToProducts_1 = require("./migrations/1775915495779-AddIsActiveToProducts");
 let AppModule = class AppModule {
@@ -49,6 +51,8 @@ exports.AppModule = AppModule = __decorate([
                     ttl: 60 * 1000,
                 }),
             }),
+            categories_module_1.CategoriesModule,
+            products_module_1.ProductsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

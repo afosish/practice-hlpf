@@ -3,16 +3,22 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+
 import { Category } from './categories/category.entity';
 import { Product } from './products/product.entity';
+import { CategoriesModule } from './categories/categories.module';
+import { ProductsModule } from './products/products.module';
+
 import { CreateTables1744383123456 } from './migrations/1744383123456-CreateTables';
 import { AddIsActiveToProducts1775915495779 } from './migrations/1775915495779-AddIsActiveToProducts';
 
 @Module({
   imports: [
 	ConfigModule.forRoot({ isGlobal: true }),
+
 	TypeOrmModule.forRoot({
   	type: 'postgres',
   	host: process.env.POSTGRES_HOST,
@@ -37,6 +43,8 @@ import { AddIsActiveToProducts1775915495779 } from './migrations/1775915495779-A
     	ttl: 60 * 1000, // 60 секунд у мілісекундах
   	}),
 	}),
+	CategoriesModule,
+	ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
