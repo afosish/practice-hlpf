@@ -16,8 +16,10 @@ import { AppService } from './app.service';
   	username: process.env.POSTGRES_USER,
   	password: process.env.POSTGRES_PASSWORD,
   	database: process.env.POSTGRES_DB,
-  	entities: [],
-  	synchronize: true,
+  	entities: [],      	// поки порожній, додамо пізніше
+  	synchronize: false,	// ВИМКНЕНО! Тільки міграції
+  	migrationsRun: true,   // автоматично запускати міграції при старті
+  	migrations: [],    	// додамо пізніше
 	}),
 	CacheModule.registerAsync({
   	isGlobal: true,

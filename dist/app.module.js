@@ -29,7 +29,9 @@ exports.AppModule = AppModule = __decorate([
                 password: process.env.POSTGRES_PASSWORD,
                 database: process.env.POSTGRES_DB,
                 entities: [],
-                synchronize: true,
+                synchronize: false,
+                migrationsRun: true,
+                migrations: [],
             }),
             cache_manager_1.CacheModule.registerAsync({
                 isGlobal: true,
