@@ -79,6 +79,7 @@ practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis
 
 # **Практична 3. CRUD REST API для MiniShop: Entity, міграції, контролери**
 
+
 **<вивід docker compose exec postgres psql -U nestuser -d nestdb -c "\dt">>**
 ```
            List of relations
@@ -106,4 +107,19 @@ Indexes:
     "products_pkey" PRIMARY KEY, btree (id)
 Foreign-key constraints:
     "products_category_id_fkey" FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
+```
+**<вивід docker compose exec postgres psql -U nestuser -d nestdb -c "SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_name = 'products';">>**
+```
+ column_name |          data_type          | is_nullable 
+-------------+-----------------------------+-------------
+ isActive    | boolean                     | NO
+ updatedAt   | timestamp without time zone | NO
+ id          | integer                     | NO
+ price       | numeric                     | NO
+ stock       | integer                     | NO
+ category_id | integer                     | YES
+ createdAt   | timestamp without time zone | NO
+ name        | character varying           | NO
+ description | text                        | YES
+(9 rows)
 ```

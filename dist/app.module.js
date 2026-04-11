@@ -17,6 +17,7 @@ const app_service_1 = require("./app.service");
 const category_entity_1 = require("./categories/category.entity");
 const product_entity_1 = require("./products/product.entity");
 const _1744383123456_CreateTables_1 = require("./migrations/1744383123456-CreateTables");
+const _1775915495779_AddIsActiveToProducts_1 = require("./migrations/1775915495779-AddIsActiveToProducts");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -34,7 +35,7 @@ exports.AppModule = AppModule = __decorate([
                 entities: [category_entity_1.Category, product_entity_1.Product],
                 synchronize: false,
                 migrationsRun: true,
-                migrations: [_1744383123456_CreateTables_1.CreateTables1744383123456],
+                migrations: [_1744383123456_CreateTables_1.CreateTables1744383123456, _1775915495779_AddIsActiveToProducts_1.AddIsActiveToProducts1775915495779],
             }),
             cache_manager_1.CacheModule.registerAsync({
                 isGlobal: true,

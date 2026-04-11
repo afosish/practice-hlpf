@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { Category } from './categories/category.entity';
 import { Product } from './products/product.entity';
 import { CreateTables1744383123456 } from './migrations/1744383123456-CreateTables';
+import { AddIsActiveToProducts1775915495779 } from './migrations/1775915495779-AddIsActiveToProducts';
 
 @Module({
   imports: [
@@ -19,10 +20,10 @@ import { CreateTables1744383123456 } from './migrations/1744383123456-CreateTabl
   	username: process.env.POSTGRES_USER,
   	password: process.env.POSTGRES_PASSWORD,
   	database: process.env.POSTGRES_DB,
-  	entities: [Category, Product],      	// поки порожній, додамо пізніше
+  	entities: [Category, Product],      
   	synchronize: false,	// ВИМКНЕНО! Тільки міграції
   	migrationsRun: true,   // автоматично запускати міграції при старті
-  	migrations: [CreateTables1744383123456],    	// додамо пізніше
+  	migrations: [CreateTables1744383123456, AddIsActiveToProducts1775915495779], 
 	}),
 	CacheModule.registerAsync({
   	isGlobal: true,
