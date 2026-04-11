@@ -79,7 +79,50 @@ practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis
 
 # **Практична 3. CRUD REST API для MiniShop: Entity, міграції, контролери**
 
+### Структура репозиторію
+```
+.
+├── src/
+│   ├── categories/
+│   │   ├── category.entity.ts
+│   │   ├── categories.module.ts
+│   │   ├── categories.service.ts
+│   │   └── categories.controller.ts
+│   ├── products/
+│   │   ├── product.entity.ts
+│   │   ├── products.module.ts
+│   │   ├── products.service.ts
+│   │   └── products.controller.ts
+│   ├── migrations/
+│   │   ├── 1700000001-CreateTables.ts
+│   │   └── <timestamp>-AddIsActiveToProducts.ts
+│   ├── data-source.ts
+│   └── app.module.ts
+├── Dockerfile
+├── docker-compose.yml
+└── README.md
+```
+### Запуск проекту
+```bash
+cp .env.example .env
+docker compose up --build
+```
+### API Endpoints
+| Method | URL | Опис |
+|--------|-----|------|
+| GET | /api/categories | Список категорій |
+| GET | /api/categories/:id | Одна категорія |
+| POST | /api/categories | Створити категорію |
+| PATCH | /api/categories/:id | Оновити категорію |
+| DELETE | /api/categories/:id | Видалити категорію |
+| GET | /api/products | Список продуктів |
+| GET | /api/products/:id | Один продукт |
+| POST | /api/products | Створити продукт |
+| PATCH | /api/products/:id | Оновити продукт |
+| DELETE | /api/products/:id | Видалити продукт |
 
+
+### Перевірка міграцій
 **<вивід docker compose exec postgres psql -U nestuser -d nestdb -c "\dt">>**
 ```
            List of relations
@@ -122,4 +165,56 @@ Foreign-key constraints:
  name        | character varying           | NO
  description | text                        | YES
 (9 rows)
+```
+### Тест створення категорії
+<вивід curl POST /api/categories>
+```
+id name        description         createdAt
+-- ----        -----------         ---------
+ 1 Electronics Gadgets and devices 2026-04-11T14:29:06.041Z
+
+id name        description createdAt
+-- ----        ----------- ---------
+ 2 Accessories             2026-04-11T14:29:11.200Z
+```
+### Тест створення продукту
+<вивід curl POST /api/products>
+```
+id          : 1
+name        : iPhone 15
+description :
+price       : 999.99
+stock       : 50
+isActive    : True
+category    : @{id=1; name=Electronics; description=Gadgets and devices; createdAt=2026-04-11T14:29:06.041Z}
+createdAt   : 2026-04-11T14:31:23.077Z
+updatedAt   : 2026-04-11T14:31:23.077Z
+```
+### Тест отримання продуктів
+<вивід curl GET /api/products>
+```
+id          : 1
+name        : iPhone 15
+description :
+price       : 999.99
+stock       : 50
+isActive    : True
+category    : @{id=1; name=Electronics; description=Gadgets and devices; createdAt=2026-04-11T14:29:06.041Z}
+createdAt   : 2026-04-11T14:31:23.077Z
+updatedAt   : 2026-04-11T14:31:23.077Z
+
+id          : 2
+name        : USB Cable
+description :
+price       : 9.99
+stock       : 200
+isActive    : True
+category    :
+createdAt   : 2026-04-11T14:31:38.563Z
+updatedAt   : 2026-04-11T14:31:38.563Z
+```
+### Тест 404
+<вивід curl GET /api/products/999>
+```
+The remote server returned an error: (404) Not Found.
 ```
