@@ -75,3 +75,6 @@ NAME                       IMAGE                COMMAND                  SERVICE
 practice-hlpf-postgres-1   postgres:16-alpine   "docker-entrypoint.s…"   postgres   3 minutes ago   Up 2 minutes (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
 practice-hlpf-redis-1      redis:7-alpine       "docker-entrypoint.s…"   redis      3 minutes ago   Up 2 minutes (healthy)   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
 ```
+
+
+# **Практична 3. CRUD REST API для MiniShop: Entity, міграції, контролери**
